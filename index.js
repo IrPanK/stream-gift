@@ -9,6 +9,7 @@ import { Server } from "socket.io";
 import notipinRoutes from "./routes/notipin.js";
 import videoniRoutes from "./routes/videoni.js";
 import userRoutes from "./routes/users.js";
+import streamerRoutes from "./routes/streamer.js";
 import rootSocket from "./sockets/socket.js";
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(cors());
 app.use("/notipin", notipinRoutes);
 app.use("/videoni", videoniRoutes);
 app.use("/user", userRoutes);
+app.use("/streamer", streamerRoutes);
 
 // greeting
 app.get("/", (req, res) => {

@@ -1,6 +1,6 @@
 const rootSocket = (io) =>
     io.on("connection", (socket) => {
-        console.log("connect!!");
+        // console.log("connect!!");
 
         socket.on("notipin", ({ notipinData }) => {
             socket.broadcast.emit("popupNotipin", { notipinData });
@@ -11,7 +11,7 @@ const rootSocket = (io) =>
         });
 
         socket.on("disconnect", () => {
-            console.log("LEFT!");
+            // console.log("LEFT!");
         });
     });
 

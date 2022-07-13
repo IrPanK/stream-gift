@@ -4,6 +4,7 @@ const notipinSchema = mongoose.Schema(
     {
         creator: String,
         message: String,
+        destination: String,
     },
     { timestamps: true }
 );

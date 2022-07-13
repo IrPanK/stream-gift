@@ -7,6 +7,7 @@ const videoniSchema = mongoose.Schema(
         url: String,
         start: String,
         duration: String,
+        destination: String,
     },
     { timestamps: true }
 );
