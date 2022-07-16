@@ -1,0 +1,63 @@
+.videoni-container {
+    max-width: 80%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    margin-top: 6rem;
+}
+
+.videoni-form {
+    width: 80%;
+    margin-inline: auto;
+}
+
+.videoni-input {
+    height: 33px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.videoni-setting {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2rem;
+}
+
+.videoni-submit {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background-color: #e294fd;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.07rem;
+    margin-bottom: 3rem;
+}
+
+.videoni-submit:hover {
+    background-color: #eab1fd;
+}
+
+@media (max-width: 43.75em) {
+    .videoni-container {
+        grid-template-columns: 1fr;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 49.375em) {
+    .videoni-setting {
+        grid-template-columns: 1fr;
+        grid-gap: 0;
+    }
+
+    .videoni-container {
+        margin-top: 6rem;
+    }
+}

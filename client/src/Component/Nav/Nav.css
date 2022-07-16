@@ -1,0 +1,238 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    max-width: 80%;
+    margin-inline: auto;
+    align-items: center;
+    height: 4.5rem;
+}
+
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-inline: auto;
+    transition: 0.5s;
+}
+
+.nav-active {
+    background: rgba(255, 255, 255, 0.553);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.281);
+    backdrop-filter: blur(3px);
+    transition: background 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+.nav li a {
+    text-decoration: none;
+    color: black;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.nav li a:hover {
+    background-color: #eabbfa;
+    border-radius: 8px;
+}
+
+.signout {
+    cursor: pointer;
+}
+
+.two-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-right {
+    justify-content: flex-end;
+}
+
+.nav-input {
+    position: relative;
+    left: 30px;
+    top: 1px;
+    width: 150px;
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+.nav-search {
+    position: fixed;
+    left: 17%;
+    top: 22px;
+    background-color: #eabbfa;
+    border-radius: 60px;
+    width: 30px;
+    height: 30px;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+@media (max-width: 93.75em) {
+    .nav-search {
+        left: 18%;
+    }
+}
+@media (max-width: 84.375em) {
+    .nav-search {
+        left: 19%;
+    }
+}
+@media (max-width: 75em) {
+    .nav-search {
+        left: 20%;
+    }
+}
+@media (max-width: 65.625em) {
+    .nav-search {
+        left: 21%;
+    }
+}
+@media (max-width: 59.375em) {
+    .nav-search {
+        left: 23%;
+    }
+}
+@media (max-width: 46.875em) {
+    .nav-search {
+        left: 25%;
+    }
+}
+@media (max-width: 40.625em) {
+    .nav-search {
+        left: 28%;
+    }
+}
+
+.nav-search .nav-icon {
+    cursor: pointer;
+}
+
+.nav-search .nav-icon::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+    transform: translate(7px, 7px);
+}
+
+.nav-search .nav-icon::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 7px;
+    background-color: black;
+    transform: translate(19px, 17px) rotate(315deg);
+}
+
+.nav-search-active {
+    width: 200px;
+}
+
+.nav-search-clear {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    right: 4px;
+    cursor: pointer;
+}
+
+.nav-search-clear::before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 12px;
+    background-color: rgb(65, 65, 65);
+    transform: translate(7px, 2px) rotate(45deg);
+}
+
+.nav-search-clear::after {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 12px;
+    background-color: rgb(65, 65, 65);
+    transform: translate(7px, 2px) rotate(315deg);
+}
+
+.nav-burger {
+    visibility: hidden;
+}
+
+.navbar {
+    position: relative;
+}
+
+@media (max-width: 31.25em) {
+    .nav {
+        visibility: hidden;
+    }
+
+    .nav-search {
+        left: 10%;
+    }
+
+    .nav-burger {
+        visibility: visible;
+        font-size: 1.3rem;
+        position: fixed;
+        z-index: 101;
+        top: 22px;
+        right: 10%;
+    }
+
+    .nav-mobile-active {
+        visibility: visible;
+        display: block;
+        transition: 0.5s;
+    }
+
+    .nav-mobile-active ul {
+        margin-top: 5rem;
+    }
+
+    .nav-mobile-active li {
+        padding-bottom: 1rem;
+    }
+
+    .nav-mobile-active-fixed {
+        background-color: rgb(202, 255, 200);
+        padding-bottom: 3rem;
+    }
+}
+
+.nav-sign {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    padding: 0;
+    max-width: 80%;
+    margin-inline: auto;
+    align-items: center;
+    height: 4.5rem;
+}
+
+.nav-sign a {
+    text-decoration: none;
+    color: black;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.nav-sign a:hover {
+    background-color: #eabbfa;
+    border-radius: 8px;
+}

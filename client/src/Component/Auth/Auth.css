@@ -1,0 +1,94 @@
+.auth-firstName {
+    grid-area: firstName;
+}
+.auth-lastName {
+    grid-area: lastName;
+}
+.auth-email {
+    grid-area: email;
+}
+.auth-password {
+    grid-area: password;
+    position: relative;
+}
+.auth-confirmPass {
+    grid-area: confirmPass;
+    margin-bottom: 1rem;
+}
+
+.auth-container {
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    max-width: 25rem;
+    margin-inline: auto;
+    display: grid;
+    grid-template-areas:
+        "firstName lastName"
+        "email email"
+        "password password"
+        "confirmPass confirmPass"
+        "button button"
+        "google google"
+        "isSignUp isSignUp";
+    grid-gap: 0.5rem;
+}
+
+.auth-button {
+    grid-area: button;
+    width: 100%;
+    background-color: rgb(107, 107, 107);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.auth-button:hover {
+    background-color: rgb(35, 35, 35);
+}
+
+.auth-google {
+    grid-area: google;
+    border: none;
+    background: none;
+    margin-inline: auto;
+}
+
+.auth-issignup {
+    grid-area: isSignUp;
+    border: none;
+    background-color: transparent;
+    text-align: right;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.auth-issignup:hover {
+    color: #ca79e4;
+}
+
+@media (max-width: 28.75em) {
+    .auth-container {
+        grid-template-areas:
+            "firstName firstName"
+            "lastName lastName"
+            "email email"
+            "password password"
+            "confirmPass confirmPass"
+            "button button"
+            "google google"
+            "isSignUp isSignUp";
+        margin: 1rem;
+    }
+
+    .auth-button {
+        width: 80%;
+    }
+
+    .auth-issignup {
+        margin-right: 22%;
+    }
+}

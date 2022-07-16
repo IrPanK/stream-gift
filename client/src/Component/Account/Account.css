@@ -1,0 +1,13 @@
+.account-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 80%;
+    margin-inline: auto;
+}
+
+@media (max-width: 55em) {
+    .account-container {
+        grid-template-columns: 1fr;
+    }
+}

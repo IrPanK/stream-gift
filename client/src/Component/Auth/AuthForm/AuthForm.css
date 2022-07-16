@@ -1,0 +1,32 @@
+.auth-label {
+    font-size: 1.3rem;
+    margin-left: 0.3rem;
+}
+
+.auth-input {
+    display: block;
+    height: 33px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+}
+
+.button-pass {
+    position: absolute;
+    top: 67%;
+    right: 3%;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 28.75em) {
+    .auth-input {
+        width: 80%;
+    }
+
+    .button-pass {
+        right: 23%;
+    }
+}

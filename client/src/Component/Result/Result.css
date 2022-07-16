@@ -1,0 +1,60 @@
+.result-container {
+    max-width: 80%;
+    margin-inline: auto;
+    display: grid;
+    grid-template-columns: 0.3fr 1fr;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+}
+
+@media (max-width: 43.75em) {
+    .result-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.result-outer {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+}
+
+.result-box {
+    border: 2px solid black;
+    padding: 2rem;
+    margin-top: 5rem;
+    margin-left: 5rem;
+    width: 80%;
+    margin-inline: auto;
+}
+
+.result-creator {
+    margin: 0;
+}
+
+.result-message {
+    margin: 0;
+}
+
+.result-moment {
+    margin: 0;
+    color: grey;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.result-url {
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.result-url:hover {
+    color: #ca79e4;
+}
+
+.result-setting {
+    font-size: 1rem;
+    display: inline;
+    color: rgb(79, 79, 79);
+    margin-right: 2rem;
+}
