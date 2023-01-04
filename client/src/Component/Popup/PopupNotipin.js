@@ -11,7 +11,7 @@ const PopupNotipin = ({ currentSocket }) => {
     const [creator, setCreator] = useState("");
     const [message, setMessage] = useState("");
 
-    const ENDPOINT = "https://stream-gift.herokuapp.com";
+    const ENDPOINT = "https://stream-gift-production.up.railway.app/";
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
     const params = useParams();

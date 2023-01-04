@@ -13,7 +13,7 @@ const Popupvideoni = () => {
     const [play, setPlay] = useState(0);
     const [popupData, setPopupData] = useState("");
 
-    const ENDPOINT = "https://stream-gift.herokuapp.com";
+    const ENDPOINT = "https://stream-gift-production.up.railway.app/";
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
     useEffect(() => {

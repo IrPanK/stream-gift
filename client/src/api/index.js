@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://stream-gift.herokuapp.com" });
+const API = axios.create({
+    baseURL: "https://stream-gift-production.up.railway.app/",
+});
 // const API = axios.create({ baseURL: "http://localhost:5000" });
 
 export const fetchNotipin = () => API.get("/notipin");

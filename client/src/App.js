@@ -25,7 +25,7 @@ const App = () => {
     const [currentSocket, setCurrentSocket] = useState(null);
 
     const dispatch = useDispatch();
-    const ENDPOINT = "https://stream-gift.herokuapp.com";
+    const ENDPOINT = "https://stream-gift-production.up.railway.app/";
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
     useEffect(() => {
