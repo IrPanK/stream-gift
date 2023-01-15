@@ -3,6 +3,7 @@
     margin-inline: auto;
     display: grid;
     grid-template-columns: 0.3fr 1fr;
+    gap: 5rem;
     margin-top: 1rem;
     margin-bottom: 5rem;
 }
@@ -22,14 +23,19 @@
 .result-box {
     border: 2px solid black;
     padding: 2rem;
-    margin-top: 5rem;
-    margin-left: 5rem;
-    width: 80%;
+    margin-bottom: 5rem;
+    min-width: 80%;
     margin-inline: auto;
 }
 
 .result-creator {
     margin: 0;
+}
+
+@media (max-width: 43.75em) {
+    .result-creator {
+        font-size: 3rem;
+    }
 }
 
 .result-message {

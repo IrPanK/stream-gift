@@ -59,102 +59,79 @@ const Nav = () => {
 
     return (
         <div className="navbar">
-            {user && (
-                <>
-                    <div
-                        className="nav-burger"
-                        onClick={() => setMobileActive((e) => !e)}
-                    >
-                        {mobileActive ? <HiOutlineX /> : <HiMenuAlt3 />}
-                    </div>
+            <div
+                className="nav-burger"
+                onClick={() => setMobileActive((e) => !e)}
+            >
+                {mobileActive ? <HiOutlineX /> : <HiMenuAlt3 />}
+            </div>
 
-                    <div
-                        className={`nav-search ${
-                            searchActive && "nav-search-active"
-                        }`}
-                    >
-                        <div className="nav-form">
-                            <form onSubmit={seacrhSubmit}>
-                                <label for="search">
-                                    <div
-                                        className="nav-icon"
-                                        onClick={() =>
-                                            setSearchActive((e) => !e)
-                                        }
-                                    ></div>
-                                </label>
-                                <input
-                                    id="search"
-                                    className={
-                                        searchActive ? "nav-input" : "invicible"
-                                    }
-                                    type={"text"}
-                                    placeholder="Search..."
-                                    onChange={(e) =>
-                                        setSearchState(e.target.value)
-                                    }
-                                    value={searchState}
-                                    maxLength="16"
-                                />
-                            </form>
-                        </div>
-                        <span
-                            className={
-                                searchActive ? "nav-search-clear" : "invicible"
-                            }
-                            onClick={() => setSearchState("")}
-                        ></span>
-                    </div>
-
-                    <div
-                        className={
-                            navActive
-                                ? `nav-container ${
-                                      mobileActive
-                                          ? "nav-mobile-active nav-mobile-active-fixed"
-                                          : "nav-active"
-                                  }`
-                                : `nav-container ${
-                                      mobileActive &&
-                                      "nav-mobile-active nav-mobile-active-fixed"
-                                  }`
-                        }
-                    >
-                        <ul
-                            className={`nav ${
-                                mobileActive && "nav-mobile-active"
-                            }`}
-                        >
-                            <li>
-                                <Link
-                                    to={"/"}
-                                    onClick={() => setMobileActive((e) => !e)}
-                                >
-                                    Home
-                                </Link>
-                            </li>
-                            <li>
-                                {user ? (
-                                    <Link
-                                        to={"/"}
-                                        className="signout"
-                                        onClick={handleSignOut}
-                                    >
-                                        Sign Out
-                                    </Link>
-                                ) : (
-                                    <Link to={"/auth"}>Sign In</Link>
-                                )}
-                            </li>
-                        </ul>
-                    </div>
-                </>
-            )}
-            {!user && (
-                <div className="nav-sign">
-                    <Link to={"/auth"}>Sign In</Link>
+            <div
+                className={`nav-search ${searchActive && "nav-search-active"}`}
+            >
+                <div className="nav-form">
+                    <form onSubmit={seacrhSubmit}>
+                        <label for="search">
+                            <div
+                                className="nav-icon"
+                                onClick={() => setSearchActive((e) => !e)}
+                            ></div>
+                        </label>
+                        <input
+                            id="search"
+                            className={searchActive ? "nav-input" : "invicible"}
+                            type={"text"}
+                            placeholder="Search..."
+                            onChange={(e) => setSearchState(e.target.value)}
+                            value={searchState}
+                            maxLength="16"
+                        />
+                    </form>
                 </div>
-            )}
+                <span
+                    className={searchActive ? "nav-search-clear" : "invicible"}
+                    onClick={() => setSearchState("")}
+                ></span>
+            </div>
+
+            <div
+                className={
+                    navActive
+                        ? `nav-container ${
+                              mobileActive
+                                  ? "nav-mobile-active nav-mobile-active-fixed"
+                                  : "nav-active"
+                          }`
+                        : `nav-container ${
+                              mobileActive &&
+                              "nav-mobile-active nav-mobile-active-fixed"
+                          }`
+                }
+            >
+                <ul className={`nav ${mobileActive && "nav-mobile-active"}`}>
+                    <li>
+                        <Link
+                            to={"/"}
+                            onClick={() => setMobileActive((e) => !e)}
+                        >
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        {user ? (
+                            <Link
+                                to={"/"}
+                                className="signout"
+                                onClick={handleSignOut}
+                            >
+                                Sign Out
+                            </Link>
+                        ) : (
+                            <Link to={"/auth"}>Sign In</Link>
+                        )}
+                    </li>
+                </ul>
+            </div>
         </div>
     );
 };

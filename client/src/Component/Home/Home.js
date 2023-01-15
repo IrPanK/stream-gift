@@ -75,7 +75,7 @@ const Home = () => {
         setTobeStreamer(false);
     };
 
-    return user ? (
+    return (
         <div>
             <div className={tobeStreamer ? "blur-back" : "invicible"}>
                 <div className="streamer-modal">
@@ -97,16 +97,28 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            {userId !== streamerAccount?.idStreamer ? (
-                <div className="streamer-quest margintop" onClick={streamer}>
-                    Ingin Jadi Streamer? Klik Saya
-                </div>
+            {user ? (
+                userId !== streamerAccount?.idStreamer ? (
+                    <div
+                        className="streamer-quest margintop"
+                        onClick={streamer}
+                    >
+                        Ingin Jadi Streamer? Klik Saya
+                    </div>
+                ) : (
+                    <div
+                        className="streamer-quest margintop"
+                        onClick={() => navigate(`/dashboard/${userId}`)}
+                    >
+                        Streamer Dashboard
+                    </div>
+                )
             ) : (
                 <div
                     className="streamer-quest margintop"
-                    onClick={() => navigate(`/dashboard/${userId}`)}
+                    onClick={() => navigate(`/auth`)}
                 >
-                    Streamer Dashboard
+                    Click To Sign In
                 </div>
             )}
 
@@ -157,12 +169,6 @@ const Home = () => {
                         </div>
                     ))}
             </div>
-        </div>
-    ) : (
-        <div className="home-container-not-login">
-            <h1>Harus Login Yah</h1>
-            <span></span>
-            <h5>itu pencet Sign In</h5>
         </div>
     );
 };
