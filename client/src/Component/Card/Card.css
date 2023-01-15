@@ -2,6 +2,7 @@
     border: 2px solid black;
     border-radius: 8px;
     padding: 1.5rem 2.5rem;
+    height: 100%;
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -53,5 +54,18 @@
 
     .card-desc {
         font-size: 1.2rem;
+    }
+
+    .card-title-streamer {
+        font-size: 1.7rem;
+    }
+
+    .card-desc-streamer {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .card {
+        padding: 0.5rem 0;
     }
 }

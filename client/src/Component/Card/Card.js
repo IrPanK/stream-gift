@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useNavigate } from "react-router";
 
 import "./Card.css";
@@ -12,7 +11,7 @@ const Card = ({ title, desc, disable, goto }) => {
 
     return (
         <div
-            className={`card ${disable ? "card-disable" : null}`}
+            className={`card ${disable ? "card-disable" : ""}`}
             onClick={disable ? null : moveTo}
             id={goto}
         >
