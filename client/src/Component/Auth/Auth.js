@@ -40,7 +40,6 @@ const Auth = () => {
             client_id:
                 "1074214648578-391aqfjv4huoumm0hj37plfvqtffj4ge.apps.googleusercontent.com",
             callback: handleCallbackResponse,
-            // ux_mode: "redirect",
         });
 
         google.accounts.id.renderButton(
@@ -49,7 +48,6 @@ const Auth = () => {
                 theme: "outline",
                 size: "medium",
                 text: "Sign in with Google",
-                // width: 400,
                 logo_alignment: "center",
             }
         );
