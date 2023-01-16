@@ -11,6 +11,7 @@
     padding: 0.3rem 0.5rem;
     font-family: "Poppins", sans-serif;
     width: 100%;
+    /* margin-inline: auto; */
 }
 
 .button-pass {
@@ -22,11 +23,11 @@
 }
 
 @media (max-width: 28.75em) {
-    .auth-input {
+    /* .auth-input {
         width: 80%;
     }
 
     .button-pass {
         right: 23%;
-    }
+    } */
 }

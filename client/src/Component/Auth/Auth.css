@@ -60,14 +60,24 @@
     grid-area: isSignUp;
     border: none;
     background-color: transparent;
-    text-align: right;
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
+    text-align: center;
+    margin-top: 0.2rem;
     cursor: pointer;
 }
 
 .auth-issignup:hover {
     color: #ca79e4;
+}
+
+.auth-issignup::before {
+    content: "";
+    display: block;
+    width: 5%;
+    height: 3px;
+    border-radius: 50px;
+    background-color: rgb(107, 107, 107);
+    margin-bottom: 0.3rem;
+    margin-inline: auto;
 }
 
 @media (max-width: 28.75em) {
@@ -82,13 +92,6 @@
             "google google"
             "isSignUp isSignUp";
         margin: 1rem;
-    }
-
-    .auth-button {
-        width: 80%;
-    }
-
-    .auth-issignup {
-        margin-right: 22%;
+        margin-top: 6rem;
     }
 }

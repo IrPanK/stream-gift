@@ -49,7 +49,7 @@ const Auth = () => {
                 theme: "outline",
                 size: "medium",
                 text: "Sign in with Google",
-                width: 400,
+                // width: 400,
                 logo_alignment: "center",
             }
         );

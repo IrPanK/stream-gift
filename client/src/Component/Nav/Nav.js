@@ -110,12 +110,7 @@ const Nav = () => {
             >
                 <ul className={`nav ${mobileActive && "nav-mobile-active"}`}>
                     <li>
-                        <Link
-                            to={"/"}
-                            onClick={() => setMobileActive((e) => !e)}
-                        >
-                            Home
-                        </Link>
+                        <Link to={"/"}>Home</Link>
                     </li>
                     <li>
                         {user ? (

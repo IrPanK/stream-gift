@@ -16,6 +16,7 @@
     width: 100%;
     margin-inline: auto;
     transition: 0.5s;
+    z-index: 999;
 }
 
 .nav-active {
@@ -187,7 +188,7 @@
         visibility: visible;
         font-size: 1.3rem;
         position: fixed;
-        z-index: 101;
+        z-index: 1019;
         top: 22px;
         right: 10%;
     }
