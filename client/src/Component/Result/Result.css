@@ -30,16 +30,34 @@
 
 .result-creator {
     margin: 0;
-}
-
-@media (max-width: 43.75em) {
-    .result-creator {
-        font-size: 3rem;
-    }
+    font-size: 3rem;
 }
 
 .result-message {
     margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    /* color: rgb(95, 95, 95); */
+}
+
+@media (max-width: 48em) {
+    .result-creator {
+        font-size: 2rem;
+    }
+
+    .result-message {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 23.4375em) {
+    .result-creator {
+        font-size: 1.5rem;
+    }
+
+    .result-message {
+        font-size: 0.9rem;
+    }
 }
 
 .result-moment {
@@ -63,4 +81,20 @@
     display: inline;
     color: rgb(79, 79, 79);
     margin-right: 2rem;
+}
+
+@media (max-width: 48em) {
+    .result-url {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 26.5625em) {
+    .result-url {
+        font-size: 0.65rem;
+    }
+
+    .result-setting {
+        font-size: 0.7rem;
+    }
 }
