@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router";
 
 import "./Link.css";
@@ -11,6 +12,8 @@ const Link = () => {
     const [message, setMessage] = useState(false);
     const [notipin, setNotipin] = useState(false);
     const [videoni, setVideoni] = useState(false);
+
+    const userId = useSelector((state) => state.auth);
 
     const copyToClipBoard = async (copyMe) => {
         try {
@@ -30,7 +33,7 @@ const Link = () => {
         <div>
             <div
                 className="streamer-quest margintop"
-                onClick={() => navigate(`/dashboard/${params.id}`)}
+                onClick={() => navigate(`/dashboard`)}
             >
                 Streamer Dashboard
             </div>
@@ -41,13 +44,13 @@ const Link = () => {
                     <div className="link-putbut">
                         <input
                             className="link-input"
-                            value={`https://streamgift.netlify.app/notipin/${params.id}`}
+                            value={`https://streamgift.netlify.app/notipin/${userId}`}
                         />
                         <button
                             className="link-button"
                             onClick={() => {
                                 copyToClipBoard(
-                                    `https://streamgift.netlify.app/notipin/${params.id}`
+                                    `https://streamgift.netlify.app/notipin/${userId}`
                                 );
                                 setMessage(true);
                             }}
@@ -62,13 +65,13 @@ const Link = () => {
                     <div className="link-putbut">
                         <input
                             className="link-input"
-                            value={`https://streamgift.netlify.app/popupnotipin/${params.id}`}
+                            value={`https://streamgift.netlify.app/popupnotipin`}
                         />
                         <button
                             className="link-button"
                             onClick={() => {
                                 copyToClipBoard(
-                                    `https://streamgift.netlify.app/popupnotipin/${params.id}`
+                                    `https://streamgift.netlify.app/popupnotipin`
                                 );
                                 setNotipin(true);
                             }}
@@ -83,13 +86,13 @@ const Link = () => {
                     <div className="link-putbut">
                         <input
                             className="link-input"
-                            value={`https://streamgift.netlify.app/popupvideoni/${params.id}`}
+                            value={`https://streamgift.netlify.app/popupvideoni`}
                         />
                         <button
                             className="link-button"
                             onClick={() => {
                                 copyToClipBoard(
-                                    `https://streamgift.netlify.app/popupvideoni/${params.id}`
+                                    `https://streamgift.netlify.app/popupvideoni`
                                 );
                                 setVideoni(true);
                             }}

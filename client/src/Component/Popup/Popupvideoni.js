@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
 
 import "./Popup.css";
 
 const Popupvideoni = () => {
-    const params = useParams();
-
     const [videoni, setVideoni] = useState("");
     const [duration, setDuration] = useState(0);
     const [play, setPlay] = useState(0);
     const [popupData, setPopupData] = useState("");
 
-    const ENDPOINT = "https://stream-gift-production.up.railway.app/";
+    const ENDPOINT = process.env.SERVER_URL;
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
+
+    const userId = useSelector((state) => state.auth);
 
     useEffect(() => {
         const socket = io(ENDPOINT, secondValue);
         socket.on("popupVideoni", ({ videoniData }) => {
-            if (videoniData.destination === params.id) {
+            if (videoniData.destination === userId) {
                 setVideoni(videoniData);
                 setDuration(Number(`${videoniData.duration}000`));
                 setPlay(Number(videoniData.start));

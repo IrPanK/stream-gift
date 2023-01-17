@@ -4,19 +4,19 @@ import moment from "moment";
 import Sidebar from "../Sidebar/Sidebar";
 
 import "./Result.css";
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 
 const ResultVideoni = () => {
     const navigate = useNavigate();
-    const params = useParams();
 
+    const userId = useSelector((state) => state.auth);
     const videoni = useSelector((state) => state.videoni);
 
     return (
         <>
             <div
                 className="streamer-quest margintop"
-                onClick={() => navigate(`/dashboard/${params.id}`)}
+                onClick={() => navigate(`/dashboard`)}
             >
                 Streamer Dashboard
             </div>
@@ -24,7 +24,7 @@ const ResultVideoni = () => {
                 <Sidebar active={"history-videoni"} />
                 <div className="result-outer">
                     {videoni
-                        .filter((e) => e.destination === params.id)
+                        .filter((e) => e.destination === userId)
                         .map((video) => (
                             <div className="result-box" key={video._id}>
                                 <h1 className="result-creator">

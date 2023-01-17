@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
-import { useParams } from "react-router";
 
 import "./Popup.css";
 import audio from "../../Audios/audioNotif.wav";
+import { useSelector } from "react-redux";
 
 const PopupNotipin = ({ currentSocket }) => {
     const [popupData, setPopupData] = useState([]);
@@ -11,16 +11,16 @@ const PopupNotipin = ({ currentSocket }) => {
     const [creator, setCreator] = useState("");
     const [message, setMessage] = useState("");
 
-    const ENDPOINT = "https://stream-gift-production.up.railway.app/";
+    const ENDPOINT = process.env.SERVER_URL;
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
-    const params = useParams();
+    const userId = useSelector((state) => state.auth);
 
     useEffect(() => {
         if (popupMessage === "") {
             const socket = io(ENDPOINT, secondValue);
             socket.on("popupNotipin", ({ notipinData }) => {
-                if (notipinData.destination === params.id) {
+                if (notipinData.destination === userId) {
                     setCreator(notipinData.creator);
                     setMessage(notipinData.message);
                 }

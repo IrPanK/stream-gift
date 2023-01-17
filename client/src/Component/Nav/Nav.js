@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { LOGOUT } from "../../constants/constants";
+import { LOGOUT, USER_LOGOUT } from "../../constants/constants";
 import { HiMenuAlt3, HiOutlineX } from "react-icons/hi";
 import decode from "jwt-decode";
 
 import "./Nav.css";
+import { getUser } from "../../actions/auth";
 
 const Nav = () => {
     const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Nav = () => {
     const [mobileActive, setMobileActive] = useState(false);
 
     const handleSignOut = () => {
+        dispatch({ type: USER_LOGOUT });
         dispatch({ type: LOGOUT });
 
         navigate("/");
@@ -30,14 +32,6 @@ const Nav = () => {
     };
 
     useEffect(() => {
-        const token = user?.token;
-
-        if (token) {
-            const decodedToken = decode(token);
-
-            if (decodedToken.exp * 1000 < new Date().getTime()) handleSignOut();
-        }
-
         setUser(JSON.parse(localStorage.getItem("profile")));
     }, [location]);
 
@@ -71,7 +65,7 @@ const Nav = () => {
             >
                 <div className="nav-form">
                     <form onSubmit={seacrhSubmit}>
-                        <label for="search">
+                        <label htmlFor="search">
                             <div
                                 className="nav-icon"
                                 onClick={() => setSearchActive((e) => !e)}

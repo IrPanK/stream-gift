@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://stream-gift-production.up.railway.app/",
+    // baseURL: "https://stream-gift-production.up.railway.app/",
+    baseURL: process.env.SERVER_URL,
 });
 // const API = axios.create({ baseURL: "http://localhost:5000" });
 

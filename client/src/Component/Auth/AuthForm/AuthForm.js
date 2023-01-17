@@ -15,7 +15,7 @@ const AuthForm = ({
 
     return (
         <div className={className}>
-            <label className={`label-${className} auth-label`} for={name}>
+            <label className={`label-${className} auth-label`} htmlFor={name}>
                 {label}
             </label>
             <input

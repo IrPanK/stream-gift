@@ -1,4 +1,4 @@
-import { AUTH, LOGOUT } from "../constants/constants";
+import { AUTH, FETCH_USER, LOGOUT, USER_LOGOUT } from "../constants/constants";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (state = { authData: null }, action) => {
@@ -13,6 +13,12 @@ export default (state = { authData: null }, action) => {
         case LOGOUT:
             localStorage.clear();
 
+            return { ...state, authData: null };
+
+        case FETCH_USER:
+            return action.data;
+
+        case USER_LOGOUT:
             return { ...state, authData: null };
 
         default:

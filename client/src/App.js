@@ -20,12 +20,14 @@ import { getStreamer } from "./actions/streamer";
 import Account from "./Component/Account/Account";
 import Dashboard from "./Component/Dashboard/Dashboard";
 import Link from "./Component/Link/Link";
+import { getUser } from "./actions/auth";
 
 const App = () => {
     const [currentSocket, setCurrentSocket] = useState(null);
 
     const dispatch = useDispatch();
-    const ENDPOINT = "https://stream-gift-production.up.railway.app/";
+    // const ENDPOINT = "https://stream-gift-production.up.railway.app/";
+    const ENDPOINT = process.env.SERVER_URL;
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
     useEffect(() => {
@@ -35,6 +37,7 @@ const App = () => {
         dispatch(getNotipin());
         dispatch(getVideoni());
         dispatch(getStreamer());
+        dispatch(getUser());
 
         return () => {
             socket.disconnect();
@@ -46,7 +49,7 @@ const App = () => {
             <Routes>
                 <Route path="/" element={<Layout content={<Home />} />} />
                 <Route
-                    path="/result/notipin/:id"
+                    path="/result/notipin"
                     element={
                         <Layout
                             content={
@@ -56,7 +59,7 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/result/videoni/:id"
+                    path="/result/videoni"
                     element={
                         <Layout
                             content={
@@ -98,7 +101,7 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/dashboard/:id"
+                    path="/dashboard"
                     element={
                         <Layout
                             content={
@@ -108,7 +111,7 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/linkhere/:id"
+                    path="/linkhere"
                     element={
                         <Layout
                             content={<Link currentSocket={currentSocket} />}
@@ -116,11 +119,11 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/popupnotipin/:id"
+                    path="/popupnotipin"
                     element={<PopupNotipin currentSocket={currentSocket} />}
                 />
                 <Route
-                    path="/popupvideoni/:id"
+                    path="/popupvideoni"
                     element={<Popupvideoni currentSocket={currentSocket} />}
                 />
             </Routes>

@@ -40,7 +40,7 @@ const Notipin = ({ currentSocket }) => {
         <div className="notipin-container">
             <Sidebar active={"notipin"} />
             <form className="notipin-form" onSubmit={handleSubmit}>
-                <label for="creator">Namamu</label>
+                <label htmlFor="creator">Namamu</label>
                 <input
                     id="creator"
                     name="creator"
@@ -51,7 +51,7 @@ const Notipin = ({ currentSocket }) => {
                     maxLength="17"
                     required
                 />
-                <label for="message">Pesanmu</label>
+                <label htmlFor="message">Pesanmu</label>
                 <textarea
                     className="text-area"
                     id="message"

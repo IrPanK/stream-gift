@@ -42,7 +42,7 @@ const Videoni = ({ currentSocket }) => {
         <div className="videoni-container">
             <Sidebar active={"videoni"} />
             <form className="videoni-form" onSubmit={handleSubmit}>
-                <label for="creator">Namamu</label>
+                <label htmlFor="creator">Namamu</label>
                 <input
                     id="creator"
                     name="creator"
@@ -53,7 +53,7 @@ const Videoni = ({ currentSocket }) => {
                     maxLength="14"
                     required
                 />
-                <label for="message">Pesanmu</label>
+                <label htmlFor="message">Pesanmu</label>
                 <input
                     id="message"
                     name="message"
@@ -64,7 +64,7 @@ const Videoni = ({ currentSocket }) => {
                     maxLength="52"
                     required
                 />
-                <label for="url">Linknya Bang</label>
+                <label htmlFor="url">Linknya Bang</label>
                 <input
                     id="url"
                     name="url"
@@ -77,7 +77,7 @@ const Videoni = ({ currentSocket }) => {
                 />
                 <div className="videoni-setting">
                     <div>
-                        <label for="start">Mulai dari</label>
+                        <label htmlFor="start">Mulai dari</label>
                         <input
                             id="start"
                             name="start"
@@ -90,7 +90,7 @@ const Videoni = ({ currentSocket }) => {
                         />
                     </div>
                     <div>
-                        <label for="duration">Durasi</label>
+                        <label htmlFor="duration">Durasi</label>
                         <input
                             id="duration"
                             name="duration"

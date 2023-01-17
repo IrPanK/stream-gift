@@ -13,42 +13,25 @@ const Home = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const [user, setUser] = useState(
-        JSON.parse(localStorage.getItem("profile"))
-    );
     const [tobeStreamer, setTobeStreamer] = useState(false);
     const [sureStreamer, setSureStreamer] = useState(false);
     const [streamerAccount, setStreamerAccount] = useState("");
-    const [userId, setUserId] = useState("");
     const [searchState, setSearchState] = useState(
         location?.state?.searchState
     );
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem("profile"))
+    );
 
+    const { userId, name } = useSelector((state) => state.auth);
     const streamerList = useSelector((state) => state.streamer);
 
-    const handleSignOut = () => {
-        dispatch({ type: LOGOUT });
-
-        navigate("/");
-
-        setUser(null);
-    };
-
     useEffect(() => {
-        const token = user?.token;
-
-        if (token) {
-            const decodedToken = decode(token);
-
-            if (decodedToken.exp * 1000 < new Date().getTime()) handleSignOut();
-        }
-
-        setUser(JSON.parse(localStorage.getItem("profile")));
         setSearchState(location?.state?.searchState);
+        setUser(JSON.parse(localStorage.getItem("profile")));
     }, [location]);
 
     useEffect(() => {
-        setUserId(user?.id || user?.result?._id);
         setStreamerAccount(streamerList.find((e) => e.idStreamer === userId));
     }, [streamerList, userId]);
 
@@ -66,12 +49,7 @@ const Home = () => {
     };
 
     const makeIt = () => {
-        const token = user?.token;
-        if (token) {
-            const idStreamer = user?.id || user?.result?._id;
-            const name = decode(user?.token).name || user?.result?.name;
-            dispatch(createStreamer({ idStreamer, name }));
-        }
+        dispatch(createStreamer({ userId, name }));
         setTobeStreamer(false);
     };
 
@@ -108,7 +86,7 @@ const Home = () => {
                 ) : (
                     <div
                         className="streamer-quest margintop"
-                        onClick={() => navigate(`/dashboard/${userId}`)}
+                        onClick={() => navigate(`/dashboard/`)}
                     >
                         Streamer Dashboard
                     </div>

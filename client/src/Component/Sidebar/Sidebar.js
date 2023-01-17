@@ -27,7 +27,7 @@ const Sidebar = ({ active }) => {
                             active === "videoni"
                                 ? `/notipin/${params.id}`
                                 : active === "history-videoni"
-                                ? `/result/notipin/${params.id}`
+                                ? `/result/notipin`
                                 : ""
                         }
                     >
@@ -60,7 +60,7 @@ const Sidebar = ({ active }) => {
                             active === "notipin"
                                 ? `/videoni/${params.id}`
                                 : active === "history-notipin"
-                                ? `/result/videoni/${params.id}`
+                                ? `/result/videoni`
                                 : ""
                         }
                     >
