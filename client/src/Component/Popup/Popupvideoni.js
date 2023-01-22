@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "./Popup.css";
 
 const Popupvideoni = () => {
+    const { search } = useLocation();
+    const parameters = new URLSearchParams(search);
+
     const [videoni, setVideoni] = useState("");
     const [duration, setDuration] = useState(0);
     const [play, setPlay] = useState(0);
     const [popupData, setPopupData] = useState("");
+    const [userId, setUser] = useState(parameters.get("user"));
 
     const ENDPOINT = process.env.SERVER_URL;
-    const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
-
-    const { userId } = useSelector((state) => state.auth);
 
     useEffect(() => {
-        const socket = io(ENDPOINT, secondValue);
+        const socket = io(ENDPOINT);
         socket.on("popupVideoni", ({ videoniData }) => {
             if (videoniData.destination === userId) {
                 setVideoni(videoniData);

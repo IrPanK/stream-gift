@@ -12,6 +12,9 @@ const Link = () => {
     const [notipin, setNotipin] = useState(false);
     const [videoni, setVideoni] = useState(false);
 
+    // const CLIENT_URL = "https://streamgift.netlify.app";
+    const CLIENT_URL = "http://localhost:3000";
+
     const { userId } = useSelector((state) => state.auth);
 
     const copyToClipBoard = async (copyMe) => {
@@ -43,13 +46,13 @@ const Link = () => {
                     <div className="link-putbut">
                         <input
                             className="link-input"
-                            value={`https://streamgift.netlify.app/notipin/${userId}`}
+                            value={`${CLIENT_URL}/notipin/${userId}`}
                         />
                         <button
                             className="link-button"
                             onClick={() => {
                                 copyToClipBoard(
-                                    `https://streamgift.netlify.app/notipin/${userId}`
+                                    `${CLIENT_URL}/notipin/${userId}`
                                 );
                                 setMessage(true);
                             }}
@@ -64,13 +67,13 @@ const Link = () => {
                     <div className="link-putbut">
                         <input
                             className="link-input"
-                            value={`https://streamgift.netlify.app/popupnotipin`}
+                            value={`${CLIENT_URL}/popupnotipin?user=${userId}`}
                         />
                         <button
                             className="link-button"
                             onClick={() => {
                                 copyToClipBoard(
-                                    `https://streamgift.netlify.app/popupnotipin`
+                                    `${CLIENT_URL}/popupnotipin?user=${userId}`
                                 );
                                 setNotipin(true);
                             }}
@@ -85,13 +88,13 @@ const Link = () => {
                     <div className="link-putbut">
                         <input
                             className="link-input"
-                            value={`https://streamgift.netlify.app/popupvideoni`}
+                            value={`${CLIENT_URL}/popupvideoni?user=${userId}`}
                         />
                         <button
                             className="link-button"
                             onClick={() => {
                                 copyToClipBoard(
-                                    `https://streamgift.netlify.app/popupvideoni`
+                                    `${CLIENT_URL}/popupvideoni?user=${userId}`
                                 );
                                 setVideoni(true);
                             }}

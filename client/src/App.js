@@ -26,12 +26,14 @@ const App = () => {
     const [currentSocket, setCurrentSocket] = useState(null);
 
     const dispatch = useDispatch();
-    // const ENDPOINT = "https://stream-gift-production.up.railway.app/";
     const ENDPOINT = process.env.SERVER_URL;
-    const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
+
+    // * dibawah ini bisa menyebabkan hal aneh
+    // masukkin di sebelah ENDPOINT
+    // const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
     useEffect(() => {
-        const socket = io(ENDPOINT, secondValue);
+        const socket = io(ENDPOINT);
         setCurrentSocket(socket);
 
         dispatch(getNotipin());

@@ -25,11 +25,9 @@ const Auth = () => {
     const navigate = useNavigate();
 
     const handleCallbackResponse = (res) => {
-        const credential = jwt_decode(res?.credential);
-        const id = credential?.sub;
         const token = res.credential;
 
-        dispatch({ type: AUTH, data: { id, token } });
+        dispatch({ type: AUTH, data: { token } });
 
         navigate("/");
     };

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "./Popup.css";
 import audio from "../../Audios/audioNotif.wav";
-import { useSelector } from "react-redux";
 
 const PopupNotipin = ({ currentSocket }) => {
+    const { search } = useLocation();
+    const parameters = new URLSearchParams(search);
+
     const [popupData, setPopupData] = useState([]);
     const [popupMessage, setPopupMessage] = useState("");
     const [creator, setCreator] = useState("");
     const [message, setMessage] = useState("");
+    const [userId, setUser] = useState(parameters.get("user"));
 
     const ENDPOINT = process.env.SERVER_URL;
-    const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
-
-    const { userId } = useSelector((state) => state.auth);
 
     useEffect(() => {
         if (popupMessage === "") {
-            const socket = io(ENDPOINT, secondValue);
+            const socket = io(ENDPOINT);
             socket.on("popupNotipin", ({ notipinData }) => {
                 if (notipinData.destination === userId) {
                     setCreator(notipinData.creator);

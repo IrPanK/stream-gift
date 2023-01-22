@@ -43,7 +43,7 @@ export const getUser = () => async (dispatch) => {
                 dispatch({ type: LOGOUT });
             }
 
-            const userId = decodedToken?.id || decodedToken?.sub;
+            const userId = decodedToken?.sub || decodedToken?.existingUser?._id;
             const name = decodedToken?.name || decodedToken?.existingUser?.name;
 
             dispatch({ type: FETCH_USER, data: { userId, name } });
