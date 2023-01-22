@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
-import { LOGOUT } from "../../constants/constants";
-import decode from "jwt-decode";
 
 import Card from "../Card/Card";
 import "./Home.css";
 import { createStreamer } from "../../actions/streamer";
+import { getUser } from "../../actions/auth";
 
 const Home = () => {
     const location = useLocation();
@@ -25,6 +24,10 @@ const Home = () => {
 
     const { userId, name } = useSelector((state) => state.auth);
     const streamerList = useSelector((state) => state.streamer);
+
+    useEffect(() => {
+        dispatch(getUser());
+    }, []);
 
     useEffect(() => {
         setSearchState(location?.state?.searchState);

@@ -4,10 +4,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { LOGOUT, USER_LOGOUT } from "../../constants/constants";
 import { HiMenuAlt3, HiOutlineX } from "react-icons/hi";
-import decode from "jwt-decode";
 
 import "./Nav.css";
-import { getUser } from "../../actions/auth";
 
 const Nav = () => {
     const dispatch = useDispatch();

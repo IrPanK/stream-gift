@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import { useSelector } from "react-redux";
 import { io } from "socket.io-client";
+import { Link } from "react-router-dom";
 
 import "./Popup.css";
 
@@ -14,7 +15,7 @@ const Popupvideoni = () => {
     const ENDPOINT = process.env.SERVER_URL;
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
-    const userId = useSelector((state) => state.auth);
+    const { userId } = useSelector((state) => state.auth);
 
     useEffect(() => {
         const socket = io(ENDPOINT, secondValue);
@@ -39,9 +40,9 @@ const Popupvideoni = () => {
     }, [popupData]);
 
     return (
-        <>
-            <div>
-                {popupData ? (
+        <div>
+            {userId ? (
+                popupData ? (
                     <div className="popin">
                         <ReactPlayer
                             url={popupData.url}
@@ -68,9 +69,16 @@ const Popupvideoni = () => {
                             </h1>
                         </div>
                     </div>
-                ) : null}
-            </div>
-        </>
+                ) : null
+            ) : (
+                <div className="popup-notloggedin-container">
+                    <h1>You're Not Logged Yet</h1>
+                    <Link to={"/auth"} className="popup-notloggedin-button">
+                        Sign In
+                    </Link>
+                </div>
+            )}
+        </div>
     );
 };
 

@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 const ResultVideoni = () => {
     const navigate = useNavigate();
 
-    const userId = useSelector((state) => state.auth);
+    const { userId } = useSelector((state) => state.auth);
     const videoni = useSelector((state) => state.videoni);
 
     return (

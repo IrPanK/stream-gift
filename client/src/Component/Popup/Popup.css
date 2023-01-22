@@ -47,3 +47,28 @@
         top: 0px;
     }
 }
+
+.popup-notloggedin-container {
+    width: 80%;
+    margin-inline: auto;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.popup-notloggedin-container h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.popup-notloggedin-button {
+    color: black;
+    text-decoration: none;
+    background-color: #e294fd;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.popup-notloggedin-button:hover {
+    background-color: #eab1fd;
+}

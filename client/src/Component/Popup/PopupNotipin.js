@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
+import { Link } from "react-router-dom";
 
 import "./Popup.css";
 import audio from "../../Audios/audioNotif.wav";
@@ -14,7 +15,7 @@ const PopupNotipin = ({ currentSocket }) => {
     const ENDPOINT = process.env.SERVER_URL;
     const secondValue = { transports: ["websocket", "polling", "flashsocket"] };
 
-    const userId = useSelector((state) => state.auth);
+    const { userId } = useSelector((state) => state.auth);
 
     useEffect(() => {
         if (popupMessage === "") {
@@ -54,29 +55,38 @@ const PopupNotipin = ({ currentSocket }) => {
 
     return (
         <div>
-            {popupMessage === "" ? null : (
-                <div>
-                    <div
-                        className={`popup-container ${
-                            popupMessage === "" ? null : "popin"
-                        }`}
-                    >
-                        <h1 className="popup-text">
-                            {popupMessage.split("curhat")[0]}{" "}
-                            <span className="popup-span">curhat</span>
-                        </h1>
-                        <h1 className="popup-text popup-message">
-                            {popupMessage.split("curhat")[1].length >= 200
-                                ? `${popupMessage
-                                      .split("curhat")[1]
-                                      .substr(0, 200)}...`
-                                : popupMessage.split("curhat")[1]}
-                        </h1>
-                    </div>
+            {userId ? (
+                popupMessage === "" ? null : (
+                    <div>
+                        <div
+                            className={`popup-container ${
+                                popupMessage === "" ? null : "popin"
+                            }`}
+                        >
+                            <h1 className="popup-text">
+                                {popupMessage.split("curhat")[0]}{" "}
+                                <span className="popup-span">curhat</span>
+                            </h1>
+                            <h1 className="popup-text popup-message">
+                                {popupMessage.split("curhat")[1].length >= 200
+                                    ? `${popupMessage
+                                          .split("curhat")[1]
+                                          .substr(0, 200)}...`
+                                    : popupMessage.split("curhat")[1]}
+                            </h1>
+                        </div>
 
-                    <audio controls autoPlay className="audio">
-                        <source src={audio} type="audio/wav" />
-                    </audio>
+                        <audio controls autoPlay className="audio">
+                            <source src={audio} type="audio/wav" />
+                        </audio>
+                    </div>
+                )
+            ) : (
+                <div className="popup-notloggedin-container">
+                    <h1>You're Not Logged Yet</h1>
+                    <Link to={"/auth"} className="popup-notloggedin-button">
+                        Sign In
+                    </Link>
                 </div>
             )}
         </div>

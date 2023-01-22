@@ -6,14 +6,13 @@ import "./Link.css";
 
 const Link = () => {
     const navigate = useNavigate();
-    const params = useParams();
 
     const [copySuccess, setCopySuccess] = useState("");
     const [message, setMessage] = useState(false);
     const [notipin, setNotipin] = useState(false);
     const [videoni, setVideoni] = useState(false);
 
-    const userId = useSelector((state) => state.auth);
+    const { userId } = useSelector((state) => state.auth);
 
     const copyToClipBoard = async (copyMe) => {
         try {

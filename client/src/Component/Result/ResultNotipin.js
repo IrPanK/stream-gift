@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 const ResultNotipin = () => {
     const navigate = useNavigate();
 
-    const userId = useSelector((state) => state.auth);
+    const { userId } = useSelector((state) => state.auth);
     const notipin = useSelector((state) => state.notipin);
 
     return (

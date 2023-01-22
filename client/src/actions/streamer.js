@@ -13,7 +13,6 @@ export const getStreamer = () => async (dispatch) => {
 };
 
 export const createStreamer = (streamer) => async (dispatch) => {
-    console.log(streamer);
     try {
         const { data } = await api.createStreamer(streamer);
 

@@ -6,7 +6,6 @@ export default (streamer = [], action) => {
         case FETCH_ALL_STREAMER:
             return action.payload;
         case CREATE_STREAMER:
-            console.log(streamer);
             return [...streamer, action.payload];
         default:
             return streamer;
